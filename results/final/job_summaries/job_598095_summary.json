@@ -1,0 +1,5 @@
+{"job_id": "598095", "job_name": "es-E6-dynamic-load", "mode": "E6", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn173", "exit_code": 0,
+ "failed": [], "elapsed_s": 4574,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-E6-dynamic-load_598095", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

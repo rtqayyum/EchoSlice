@@ -1,0 +1,7 @@
+slicer,cells,mean_gap,worst_gap,cells_ge5
+echoslice-lite,24,0.602,1.842,0
+forecast+20%,24,1.915,4.074,0
+ol-qoe+10%,24,3.742,5.895,6
+shared,12,0.655,2.042,0
+static,24,0.506,1.7,0
+usage-prop,24,7.069,23.394,14

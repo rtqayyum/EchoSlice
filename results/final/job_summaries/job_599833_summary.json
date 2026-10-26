@@ -1,0 +1,5 @@
+{"job_id": "599833", "job_name": "es-F6-ablations-hints", "mode": "E9,E11", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn117", "exit_code": 0,
+ "failed": [], "elapsed_s": 2113,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-F6-ablations-hints_599833", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

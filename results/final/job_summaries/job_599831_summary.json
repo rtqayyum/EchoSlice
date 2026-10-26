@@ -1,0 +1,5 @@
+{"job_id": "599831", "job_name": "es-F4-dynamic-load", "mode": "E6", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn187", "exit_code": 0,
+ "failed": [], "elapsed_s": 1172,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-F4-dynamic-load_599831", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

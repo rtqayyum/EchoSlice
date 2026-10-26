@@ -1,0 +1,5 @@
+{"job_id": "599835", "job_name": "es-F9-xr-l4s", "mode": "E12", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn119", "exit_code": 0,
+ "failed": [], "elapsed_s": 1837,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-F9-xr-l4s_599835", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

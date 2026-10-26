@@ -1,0 +1,208 @@
+#!/bin/bash
+#SBATCH --job-name=echoslice-campaign
+#SBATCH --partition=longq
+#SBATCH --ntasks=40
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2G
+#SBATCH --time=23:00:00
+#SBATCH --output=/home/USER/echoslice/logs/%x_%j.out
+#SBATCH --error=/home/USER/echoslice/logs/%x_%j.err
+#
+# EchoSlice (reaction-aware 6G RAN slicing): Slurm entrypoint for the HPC campaign.
+#
+#   bash /home/USER/echoslice/hpc/submit_final.sh  the final campaign (recommended: parallel jobs + DRL)
+#   sbatch /home/USER/echoslice/Batch              all experiments in one job, then the report
+#   sbatch --job-name=es-E1-effect /home/USER/echoslice/Batch E1      one experiment (or a list: E1,E5)
+#   sbatch --job-name=es-report --ntasks=1 --cpus-per-task=4 --mem-per-cpu=4G /home/USER/echoslice/Batch REPORT [E1,E6]
+#   sbatch --job-name=es-audit-deeporan --ntasks=1 --cpus-per-task=16 --mem-per-cpu=4G --time=08:00:00 \
+#          /home/USER/echoslice/Batch AUDIT
+#   sbatch --job-name=es-drl-train-loop --ntasks=1 --cpus-per-task=32 --mem-per-cpu=2G \
+#          /home/USER/echoslice/Batch DRLTRAIN loop          (or twin)
+#
+# Options (pass with: sbatch --export=ALL,NAME=value ...):
+#   ES_SEEDS=30          seeds per configuration
+#   ES_SMOKE=1           one cell per experiment (quick end-to-end test)
+#   ES_MAX_JOBS=0        cap jobs per experiment (0 = no cap)
+#   (REPORT covers E1,E2,E4,E5,E6,E7 unless a list is given as the second argument)
+#   ES_DATA=<dir>        DeepORAN v2 release for AUDIT (default <root>/data/deeporan_v2)
+#   ES_ROOT=<dir>        project root (default /home/USER/echoslice)
+#   ES_DRL=all|skip|only run DRL-policy runs too / leave them for later / run only them (default all)
+#   ES_DRL_ITERS=150     PPO iterations; ES_DRL_EPISODES=40 episodes per iteration (DRLTRAIN)
+#
+# Resuming: submit the same command again. Finished runs are kept and skipped.
+# Exit status: 0 only if every requested experiment completed with no failed run
+# and the report (when built) found no gaps.
+
+set -Eeuo pipefail
+
+ROOT="${ES_ROOT:-/home/USER/echoslice}"
+MODE="${1:-ALL}"
+SEEDS="${ES_SEEDS:-30}"
+MAXJOBS="${ES_MAX_JOBS:-0}"
+SMOKE="${ES_SMOKE:-0}"
+DATA="${ES_DATA:-$ROOT/data/deeporan_v2}"
+REPORT_EXPS="${ES_REPORT_EXPS:-E1,E2,E4,E5,E6,E7,E9,E10,E11,E12,E13,E14}"
+DRLMODE="${ES_DRL:-all}"
+JOBID="${SLURM_JOB_ID:-local$$}"
+JOBNAME="${SLURM_JOB_NAME:-echoslice-campaign}"
+NT="${SLURM_NTASKS:-1}"
+CPT="${SLURM_CPUS_PER_TASK:-1}"
+TAG="j${JOBID}"
+T_START=$(date +%s)
+
+# ---------------------------------------------------------------- directories and environment
+mkdir -p "$ROOT"/{logs,results,outputs,figures,reports,tmp} "$ROOT"/.cache/{numba,mpl,pip,xdg}
+SHARDLOG="$ROOT/logs/${JOBNAME}_${JOBID}"
+mkdir -p "$SHARDLOG"
+export TMPDIR="$ROOT/tmp/$JOBID"
+mkdir -p "$TMPDIR"
+export ES_ROOT="$ROOT"
+export NUMBA_CACHE_DIR="$ROOT/.cache/numba"
+export MPLCONFIGDIR="$ROOT/.cache/mpl"
+export PIP_CACHE_DIR="$ROOT/.cache/pip"
+export XDG_CACHE_HOME="$ROOT/.cache/xdg"
+export PYTHONNOUSERSITE=1 PYTHONUNBUFFERED=1 MPLBACKEND=Agg
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMBA_NUM_THREADS=1
+cd "$ROOT"
+
+log() { echo "[$(date '+%F %T')] $*"; }
+log "job $JOBID ($JOBNAME) mode=$MODE seeds=$SEEDS smoke=$SMOKE ntasks=$NT cpus/task=$CPT"
+log "nodes=${SLURM_JOB_NODELIST:-local} partition=${SLURM_JOB_PARTITION:-n/a} root=$ROOT"
+log "per-task logs: $SHARDLOG"
+
+FAILED=()
+SUMMARY="$ROOT/results/job_${JOBID}_summary.json"
+write_summary() {
+  local rc=$1
+  local fl=""
+  if (( ${#FAILED[@]} )); then fl=$(printf '"%s",' "${FAILED[@]}"); fl="${fl%,}"; fi
+  cat > "$SUMMARY" <<EOF
+{"job_id": "$JOBID", "job_name": "$JOBNAME", "mode": "$MODE", "seeds": $SEEDS, "smoke": $SMOKE,
+ "ntasks": $NT, "nodes": "${SLURM_JOB_NODELIST:-local}", "exit_code": $rc,
+ "failed": [${fl}], "elapsed_s": $(( $(date +%s) - T_START )),
+ "per_task_logs": "$SHARDLOG", "campaign_summary": "$ROOT/results/campaign_summary.json",
+ "report": "$ROOT/reports/CAMPAIGN_REPORT.md"}
+EOF
+}
+finish() {
+  local rc=$?
+  if (( rc == 0 && ${#FAILED[@]} )); then rc=1; fi
+  write_summary "$rc"
+  log "done: exit $rc, failed: ${FAILED[*]:-none}; summary $SUMMARY"
+  exit "$rc"
+}
+trap finish EXIT
+
+log "=== environment"
+bash "$ROOT/hpc/setup_env.sh"
+PY="$ROOT/.venv/bin/python"
+"$PY" -m compileall -q "$ROOT/sim" "$ROOT/experiments" "$ROOT/tier_a"
+"$PY" -m experiments.campaign warmup
+
+run_exp() {
+  local E=$1
+  local d="$ROOT/results/$E"
+  mkdir -p "$d/parts"
+  local lockf="$d/.running_by_${DRLMODE}"
+  if [[ -f "$lockf" ]]; then
+    local other; other=$(cat "$lockf")
+    if [[ "$other" != "$JOBID" ]] && command -v squeue >/dev/null 2>&1 && squeue -h -j "$other" 2>/dev/null | grep -q .; then
+      log "skip $E: job $other of this project is already running it"
+      FAILED+=("$E:busy")
+      return
+    fi
+  fi
+  echo "$JOBID" > "$lockf"
+  local extra=()
+  [[ "$SMOKE" == "1" ]] && extra+=(--smoke)
+  log "=== $E: prepare"
+  "$PY" -m experiments.campaign prepare --root "$ROOT" --exps "$E" --seeds "$SEEDS" --max-jobs "$MAXJOBS" \
+        --ntasks "$NT" --tag "$TAG" --drl "$DRLMODE" ${extra[@]+"${extra[@]}"} | tee -a "$SHARDLOG/prepare.log"
+  log "=== $E: run on $NT tasks"
+  local rc=0
+  if command -v srun >/dev/null 2>&1 && [[ -n "${SLURM_JOB_ID:-}${ES_FAKE_SLURM:-}" ]]; then
+    srun --ntasks="$NT" --cpus-per-task=1 --kill-on-bad-exit=0 --unbuffered \
+         --output="$SHARDLOG/${E}_task%3t.out" --error="$SHARDLOG/${E}_task%3t.err" \
+         "$PY" -m experiments.campaign run --root "$ROOT" --exp "$E" --tag "$TAG" || rc=$?
+  else
+    "$PY" -m experiments.campaign run --root "$ROOT" --exp "$E" --tag "$TAG" \
+         > "$SHARDLOG/${E}_task000.out" 2> "$SHARDLOG/${E}_task000.err" || rc=$?
+  fi
+  rm -f "$lockf"
+  "$PY" -m experiments.campaign status --root "$ROOT" --exps "$E" | tee -a "$SHARDLOG/status.log"
+  if (( rc != 0 )); then
+    log "!!! $E: some tasks failed (exit $rc); see $SHARDLOG/${E}_task*.err and ERROR lines in *.out"
+    FAILED+=("$E")
+  fi
+}
+
+run_report() {
+  log "=== report: $1"
+  local rc=0
+  "$PY" -m experiments.campaign report --root "$ROOT" --exps "$1" --tag "$TAG" 2>&1 | tee "$SHARDLOG/report.log" || rc=${PIPESTATUS[0]}
+  if (( rc != 0 )); then FAILED+=("REPORT"); fi
+  log "report: $ROOT/reports/CAMPAIGN_REPORT.md   summary: $ROOT/results/campaign_summary.json"
+}
+
+case "$MODE" in
+  ALL)
+    for E in E1 E2 E4 E5 E6 E7 E9 E10 E11 E12 E13 E14; do run_exp "$E"; done
+    run_report "$REPORT_EXPS"
+    ;;
+  DRLTRAIN)
+    REG="${2:-loop}"
+    DSEED="${3:-0}"                                   # training seed; seed 0 keeps the original file names
+    PNAME="drl_${REG}"; [[ "$DSEED" != "0" ]] && PNAME="drl_${REG}_s${DSEED}"
+    mkdir -p "$ROOT/policies"
+    log "=== DRL training ($REG) on $CPT CPUs, iterations ${ES_DRL_ITERS:-150} x ${ES_DRL_EPISODES:-40} episodes"
+    rc=0
+    if command -v srun >/dev/null 2>&1 && [[ -n "${SLURM_JOB_ID:-}" ]]; then
+      srun --ntasks=1 --cpus-per-task="$CPT" --output="$SHARDLOG/${PNAME}.out" --error="$SHARDLOG/${PNAME}.err" \
+           "$PY" -m experiments.drl train --regime "$REG" --out "$ROOT/policies/${PNAME}.json" --workers "$CPT" \
+           --seed "$DSEED" --iters "${ES_DRL_ITERS:-150}" --episodes "${ES_DRL_EPISODES:-40}" || rc=$?
+    else
+      "$PY" -m experiments.drl train --regime "$REG" --out "$ROOT/policies/${PNAME}.json" --workers "$CPT" \
+           --seed "$DSEED" --iters "${ES_DRL_ITERS:-150}" --episodes "${ES_DRL_EPISODES:-40}" \
+           > "$SHARDLOG/${PNAME}.out" 2> "$SHARDLOG/${PNAME}.err" || rc=$?
+    fi
+    if (( rc != 0 )) || [[ ! -s "$ROOT/policies/${PNAME}.json" ]]; then FAILED+=("DRLTRAIN:$REG"); fi
+    log "policy: $ROOT/policies/${PNAME}.json   learning curve: $ROOT/policies/${PNAME}_log.jsonl"
+    ;;
+  REPORT)
+    run_report "${2:-$REPORT_EXPS}"
+    ;;
+  TUNESELECT)
+    log "=== select the tuned settings from E27"
+    "$PY" "$ROOT/diagnostics/round5/select_tuned.py" "$ROOT" 2>&1 | tee "$SHARDLOG/tuneselect.log" || FAILED+=("TUNESELECT")
+    [[ -s "$ROOT/diagnostics/round5/tuned.json" ]] || FAILED+=("TUNESELECT:no-file")
+    ;;
+  AUDIT)
+    if [[ ! -d "$DATA" ]]; then
+      log "AUDIT: data directory $DATA not found (upload the DeepORAN v2 release there, or set ES_DATA)"
+      FAILED+=("AUDIT:no-data")
+      exit 2
+    fi
+    export OMP_NUM_THREADS="$CPT" POLARS_MAX_THREADS="$CPT"
+    mkdir -p "$ROOT/outputs/audit"
+    rc=0
+    if command -v srun >/dev/null 2>&1 && [[ -n "${SLURM_JOB_ID:-}" ]]; then
+      srun --ntasks=1 --cpus-per-task="$CPT" --output="$SHARDLOG/audit.out" --error="$SHARDLOG/audit.err" \
+           "$PY" "$ROOT/tier_a/deeporan_audit.py" --data "$DATA" --out "$ROOT/outputs/audit" || rc=$?
+    else
+      "$PY" "$ROOT/tier_a/deeporan_audit.py" --data "$DATA" --out "$ROOT/outputs/audit" \
+           > "$SHARDLOG/audit.out" 2> "$SHARDLOG/audit.err" || rc=$?
+    fi
+    (( rc == 0 )) || FAILED+=("AUDIT")
+    log "audit report: $ROOT/outputs/audit/AUDIT_REPORT.md"
+    ;;
+  E[0-9]*)
+    IFS=',' read -ra LIST <<< "$MODE"
+    for E in "${LIST[@]}"; do run_exp "$E"; done
+    if [[ "${ES_REPORT_AFTER:-0}" == "1" ]]; then run_report "$MODE"; fi
+    ;;
+  *)
+    log "unknown mode '$MODE' (use ALL, REPORT, AUDIT, DRLTRAIN loop|twin, or experiments such as E1 or E1,E5)"
+    FAILED+=("bad-mode")
+    exit 2
+    ;;
+esac

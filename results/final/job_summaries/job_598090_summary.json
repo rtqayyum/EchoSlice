@@ -1,0 +1,5 @@
+{"job_id": "598090", "job_name": "echoslice-campaign", "mode": "ALL", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn[117-118]", "exit_code": 1,
+ "failed": ["E1:busy","E6:busy","REPORT"], "elapsed_s": 1061,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/echoslice-campaign_598090", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

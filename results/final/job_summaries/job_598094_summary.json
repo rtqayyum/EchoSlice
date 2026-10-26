@@ -1,0 +1,5 @@
+{"job_id": "598094", "job_name": "es-E5-headroom", "mode": "E5", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn172", "exit_code": 0,
+ "failed": [], "elapsed_s": 304,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-E5-headroom_598094", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

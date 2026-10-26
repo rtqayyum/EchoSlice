@@ -1,0 +1,5 @@
+{"job_id": "598098", "job_name": "es-E4-qoe-sensitivity", "mode": "E4", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn[169-171]", "exit_code": 1,
+ "failed": ["E4:busy"], "elapsed_s": 65,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-E4-qoe-sensitivity_598098", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

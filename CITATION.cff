@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper below."
+title: "EchoSlice: code and results for reaction-aware RAN slicing"
+authors:
+  - family-names: Qayyum
+    given-names: Tariq
+repository-code: "https://github.com/rtqayyum/EchoSlice"
+license: GPL-3.0
+version: "1.1-revision"
+date-released: 2026-10-26
+preferred-citation:
+  type: unpublished
+  title: "EchoSlice: Reaction-Aware RAN Slicing in O-RAN"
+  authors:
+    - family-names: Qayyum
+      given-names: Tariq
+  year: 2026

@@ -1,0 +1,5 @@
+{"job_id": "599836", "job_name": "es-F10-theory-checks", "mode": "E13", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn[117-118]", "exit_code": 0,
+ "failed": [], "elapsed_s": 1290,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-F10-theory-checks_599836", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

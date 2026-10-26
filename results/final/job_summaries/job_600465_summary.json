@@ -1,0 +1,5 @@
+{"job_id": "600465", "job_name": "es-fix-E2-E10", "mode": "E2,E10", "seeds": 30, "smoke": 0,
+ "ntasks": 2, "nodes": "cn114", "exit_code": 0,
+ "failed": [], "elapsed_s": 63,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-fix-E2-E10_600465", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

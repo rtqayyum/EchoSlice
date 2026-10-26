@@ -1,0 +1,5 @@
+{"job_id": "599799", "job_name": "es-drl-eval", "mode": "E1,E6,E7,E10,E12,E14", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn[168-169]", "exit_code": 0,
+ "failed": [], "elapsed_s": 2271,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-drl-eval_599799", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}
