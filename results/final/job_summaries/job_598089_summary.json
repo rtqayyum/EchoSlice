@@ -1,0 +1,5 @@
+{"job_id": "598089", "job_name": "es-smoke", "mode": "ALL", "seeds": 2, "smoke": 1,
+ "ntasks": 8, "nodes": "cn001", "exit_code": 1,
+ "failed": ["E2:busy","E4:busy","E5:busy","E6:busy","REPORT"], "elapsed_s": 86,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-smoke_598089", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

@@ -1,0 +1,5 @@
+{"job_id": "599838", "job_name": "es-report", "mode": "REPORT", "seeds": 30, "smoke": 0,
+ "ntasks": 1, "nodes": "cn114", "exit_code": 1,
+ "failed": ["REPORT"], "elapsed_s": 91,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-report_599838", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

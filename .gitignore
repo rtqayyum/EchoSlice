@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.conda-git/
+.cache/
+logs/
+work/
+analysis/tables/
+analysis/figures/
+data/
+.DS_Store

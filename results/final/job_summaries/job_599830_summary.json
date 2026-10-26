@@ -1,0 +1,5 @@
+{"job_id": "599830", "job_name": "es-F2-period-qoe-headroom", "mode": "E2,E4,E5", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn186", "exit_code": 1,
+ "failed": ["E2"], "elapsed_s": 959,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-F2-period-qoe-headroom_599830", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

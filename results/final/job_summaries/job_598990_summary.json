@@ -1,0 +1,5 @@
+{"job_id": "598990", "job_name": "es-E7-unbalanced-shifting", "mode": "E7", "seeds": 30, "smoke": 0,
+ "ntasks": 80, "nodes": "cn[133-135]", "exit_code": 0,
+ "failed": [], "elapsed_s": 3241,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-E7-unbalanced-shifting_598990", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

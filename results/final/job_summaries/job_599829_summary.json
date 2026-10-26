@@ -1,0 +1,5 @@
+{"job_id": "599829", "job_name": "es-F1-effect-size", "mode": "E1", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn[172-173]", "exit_code": 0,
+ "failed": [], "elapsed_s": 1027,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-F1-effect-size_599829", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

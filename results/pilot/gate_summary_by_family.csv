@@ -1,0 +1,23 @@
+family,slicer,cells,mean_gap,worst_gap,cells_ge5,mos_video,mos_game,mos_bulk
+2-slice shareable,usage-prop,6,3.331,6.49,2,4.55,,3.732
+2-slice shareable,forecast+20%,6,1.305,3.358,0,4.784,,3.043
+2-slice shareable,ol-qoe+10%,6,2.492,3.317,0,4.524,,4.125
+2-slice shareable,echoslice-lite,6,0.304,1.03,0,4.707,,3.801
+2-slice shareable,static,6,0.699,1.7,0,4.666,,3.931
+2-slice shareable,shared,6,0.186,0.61,0,4.779,,3.439
+2-slice strict,usage-prop,6,2.294,4.568,0,4.645,,3.539
+2-slice strict,forecast+20%,6,1.293,3.33,0,4.784,,3.041
+2-slice strict,ol-qoe+10%,6,2.658,4.294,0,4.512,,4.137
+2-slice strict,echoslice-lite,6,0.81,1.842,0,4.673,,3.824
+2-slice strict,static,6,0.784,1.599,0,4.668,,3.896
+3-slice shareable,usage-prop,6,9.595,13.552,6,4.705,2.054,3.797
+3-slice shareable,forecast+20%,6,2.452,4.074,0,4.805,3.7,3.031
+3-slice shareable,ol-qoe+10%,6,4.946,5.895,3,4.593,3.057,4.082
+3-slice shareable,echoslice-lite,6,0.382,0.686,0,4.702,4.186,3.32
+3-slice shareable,static,6,0.181,0.562,0,4.676,4.098,3.605
+3-slice shareable,shared,6,1.123,2.042,0,4.793,3.748,3.375
+3-slice strict,usage-prop,6,13.054,23.394,6,4.411,2.037,3.863
+3-slice strict,forecast+20%,6,2.609,3.899,0,4.796,3.599,3.051
+3-slice strict,ol-qoe+10%,6,4.869,5.286,3,4.568,3.067,4.086
+3-slice strict,echoslice-lite,6,0.909,1.236,0,4.697,4.046,3.287
+3-slice strict,static,6,0.36,0.774,0,4.646,4.103,3.558

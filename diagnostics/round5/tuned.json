@@ -1,0 +1,9 @@
+{
+ "fb_step": 0.025,
+ "fb_band": 0.75,
+ "gate_m": 3,
+ "gate_tol": 0.1,
+ "fb_tag": "fb-s0.025-b0.75",
+ "gate_tag": "gated-m3-t0.1",
+ "n_runs": 552
+}

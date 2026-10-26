@@ -1,0 +1,7 @@
+{
+ "bulk_rate": 20000000.0,
+ "bo_beta": 1.0,
+ "bf_tag": "bf20",
+ "bo_tag": "bo-b1",
+ "n_runs": 272
+}

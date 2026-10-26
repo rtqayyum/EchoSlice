@@ -1,0 +1,5 @@
+{"job_id": "599837", "job_name": "es-F11-convergence", "mode": "E14", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn180", "exit_code": 0,
+ "failed": [], "elapsed_s": 1761,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-F11-convergence_599837", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

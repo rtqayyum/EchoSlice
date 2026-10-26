@@ -1,0 +1,5 @@
+{"job_id": "598091", "job_name": "es-E1-effect", "mode": "E1", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn[118-119]", "exit_code": 1,
+ "failed": ["E1:busy"], "elapsed_s": 20,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-E1-effect_598091", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

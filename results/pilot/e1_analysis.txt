@@ -1,0 +1,287 @@
+
+===== metric: mos_user =====
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static     24         0.506           0.399          1.700                0.000                   0.000
+echoslice-lite     24         0.602           0.500          1.842                0.000                   0.000
+        shared     12         0.655           0.414          2.042                0.000                   0.000
+  forecast+20%     24         1.915           2.004          4.074                0.000                   0.000
+    ol-qoe+10%     24         3.742           4.240          5.895                0.250                   0.000
+    usage-prop     24         7.069           6.786         23.394                0.583                   0.333
+
+-- strict=False n_game=0
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        shared      6         0.186           0.134          0.610                0.000                   0.000
+echoslice-lite      6         0.304           0.198          1.030                0.000                   0.000
+        static      6         0.699           0.532          1.700                0.000                   0.000
+  forecast+20%      6         1.305           0.696          3.358                0.000                   0.000
+    ol-qoe+10%      6         2.492           2.647          3.317                0.000                   0.000
+    usage-prop      6         3.331           2.723          6.490                0.333                   0.333
+
+-- strict=False n_game=6
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.044           0.044          0.224                  0.0                     0.0
+echoslice-lite      2         0.347           0.347          0.470                  0.0                     0.0
+        shared      2         0.392           0.392          0.571                  0.0                     0.0
+  forecast+20%      2         2.004           2.004          2.015                  0.0                     0.0
+    ol-qoe+10%      2         5.261           5.261          5.345                  1.0                     0.0
+    usage-prop      2         7.713           7.713          7.723                  1.0                     0.0
+
+-- strict=False n_game=8
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.001           0.001          0.397                  0.0                     0.0
+echoslice-lite      2         0.206           0.206          0.471                  0.0                     0.0
+        shared      2         1.344           1.344          1.525                  0.0                     0.0
+  forecast+20%      2         1.536           1.536          1.559                  0.0                     0.0
+    ol-qoe+10%      2         5.124           5.124          5.895                  0.5                     0.0
+    usage-prop      2         7.581           7.581          7.668                  1.0                     0.0
+
+-- strict=False n_game=12
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.497           0.497          0.562                  0.0                     0.0
+echoslice-lite      2         0.594           0.594          0.686                  0.0                     0.0
+        shared      2         1.633           1.633          2.042                  0.0                     0.0
+  forecast+20%      2         3.817           3.817          4.074                  0.0                     0.0
+    ol-qoe+10%      2         4.453           4.453          4.720                  0.0                     0.0
+    usage-prop      2        13.492          13.492         13.552                  1.0                     1.0
+
+-- strict=True n_game=0
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      6         0.784           0.594          1.599                  0.0                     0.0
+echoslice-lite      6         0.810           0.792          1.842                  0.0                     0.0
+  forecast+20%      6         1.293           0.864          3.330                  0.0                     0.0
+    usage-prop      6         2.294           1.921          4.568                  0.0                     0.5
+    ol-qoe+10%      6         2.658           2.804          4.294                  0.0                     0.0
+
+-- strict=True n_game=6
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.143           0.143          0.148                  0.0                     0.0
+echoslice-lite      2         0.808           0.808          0.915                  0.0                     0.0
+  forecast+20%      2         1.884           1.884          2.044                  0.0                     0.0
+    ol-qoe+10%      2         4.928           4.928          5.133                  0.5                     0.0
+    usage-prop      2        19.914          19.914         23.394                  1.0                     0.0
+
+-- strict=True n_game=8
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.337           0.337          0.401                  0.0                     0.0
+echoslice-lite      2         0.999           0.999          1.236                  0.0                     0.0
+  forecast+20%      2         2.234           2.234          2.430                  0.0                     0.0
+    ol-qoe+10%      2         4.810           4.810          5.286                  0.5                     0.0
+    usage-prop      2         7.105           7.105          7.127                  1.0                     0.0
+
+-- strict=True n_game=12
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.600           0.600          0.774                  0.0                     0.0
+echoslice-lite      2         0.922           0.922          0.961                  0.0                     0.0
+  forecast+20%      2         3.710           3.710          3.899                  0.0                     0.0
+    ol-qoe+10%      2         4.871           4.871          5.029                  0.5                     0.0
+    usage-prop      2        12.142          12.142         12.352                  1.0                     0.5
+
+===== metric: mos_slice_avg =====
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static     24         0.615           0.561          2.619                0.000                   0.000
+echoslice-lite     24         2.006           1.882          4.667                0.000                   0.000
+    ol-qoe+10%     24         2.730           2.226          7.166                0.333                   0.000
+        shared     12         4.652           5.556          8.863                0.583                   0.000
+  forecast+20%     24         8.655           7.665         21.352                0.667                   0.000
+    usage-prop     24        10.453          10.774         21.378                0.750                   0.333
+
+-- strict=False n_game=0
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+    ol-qoe+10%      6        -0.098          -0.068          0.238                0.000                   0.000
+        static      6         0.496           0.485          1.133                0.000                   0.000
+echoslice-lite      6         1.558           1.267          3.725                0.000                   0.000
+    usage-prop      6         4.253           3.702          9.080                0.333                   0.333
+        shared      6         4.986           6.091          8.863                0.667                   0.000
+  forecast+20%      6         9.679           8.260         21.352                0.667                   0.000
+
+-- strict=False n_game=6
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.914           0.914          0.940                  0.0                     0.0
+echoslice-lite      2         1.353           1.353          1.544                  0.0                     0.0
+        shared      2         1.844           1.844          1.858                  0.0                     0.0
+  forecast+20%      2         3.271           3.271          3.555                  0.0                     0.0
+    ol-qoe+10%      2         5.328           5.328          5.783                  0.5                     0.0
+    usage-prop      2        10.774          10.774         10.808                  1.0                     0.0
+
+-- strict=False n_game=8
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.535           0.535          0.694                  0.0                     0.0
+echoslice-lite      2         1.727           1.727          2.424                  0.0                     0.0
+        shared      2         5.085           5.085          5.676                  0.5                     0.0
+  forecast+20%      2         6.160           6.160          6.596                  1.0                     0.0
+    ol-qoe+10%      2         6.750           6.750          7.166                  1.0                     0.0
+    usage-prop      2        13.958          13.958         14.385                  1.0                     0.0
+
+-- strict=False n_game=12
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.058           0.058          0.189                  0.0                     0.0
+echoslice-lite      2         2.654           2.654          3.170                  0.0                     0.0
+    ol-qoe+10%      2         5.067           5.067          5.151                  0.5                     0.0
+        shared      2         6.028           6.028          6.568                  1.0                     0.0
+  forecast+20%      2        12.981          12.981         13.078                  1.0                     0.0
+    usage-prop      2        21.362          21.362         21.378                  1.0                     1.0
+
+-- strict=True n_game=0
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+    ol-qoe+10%      6         0.163           0.105          0.527                0.000                     0.0
+        static      6         1.105           0.739          2.619                0.000                     0.0
+echoslice-lite      6         1.922           1.576          3.434                0.000                     0.0
+    usage-prop      6         5.617           7.165         10.851                0.667                     0.5
+  forecast+20%      6         9.948           8.429         21.280                0.667                     0.0
+
+-- strict=True n_game=6
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.827           0.827          0.885                  0.0                     0.0
+echoslice-lite      2         1.861           1.861          1.954                  0.0                     0.0
+  forecast+20%      2         2.774           2.774          3.032                  0.0                     0.0
+    ol-qoe+10%      2         4.139           4.139          4.352                  0.0                     0.0
+    usage-prop      2        16.276          16.276         18.075                  1.0                     0.0
+
+-- strict=True n_game=8
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.207           0.207          0.577                  0.0                     0.0
+echoslice-lite      2         3.652           3.652          4.667                  0.0                     0.0
+    ol-qoe+10%      2         5.903           5.903          6.017                  1.0                     0.0
+  forecast+20%      2         6.712           6.712          7.179                  1.0                     0.0
+    usage-prop      2        12.802          12.802         13.203                  1.0                     0.0
+
+-- strict=True n_game=12
+        slicer  cells  mean_gap_pct  median_gap_pct  worst_gap_pct  share_cells_gap_ge5  share_pareto_dominated
+        static      2         0.033           0.033          0.113                  0.0                     0.0
+echoslice-lite      2         2.385           2.385          2.457                  0.0                     0.0
+    ol-qoe+10%      2         5.381           5.381          5.457                  1.0                     0.0
+  forecast+20%      2        13.085          13.085         13.210                  1.0                     0.0
+    usage-prop      2        20.660          20.660         20.914                  1.0                     0.5
+ n_video  n_game  n_bulk  abr  strict         slicer   mos  oracle  gap_pct  pareto_margin  mos_video  mos_bulk  mos_game  x_video  x_bulk  x_game
+      16       0       4  dyn   False echoslice-lite 4.679   4.683    0.098         -0.003      4.823     4.101       NaN    0.460   0.540     NaN
+      16       0       4  dyn   False   forecast+20% 4.677   4.683    0.132         -0.034      4.804     4.171       NaN    0.355   0.645     NaN
+      16       0       4  dyn   False     ol-qoe+10% 4.590   4.683    2.003         -0.004      4.650     4.350       NaN    0.196   0.804     NaN
+      16       0       4  dyn   False         shared 4.677   4.683    0.128         -0.007      4.835     4.046       NaN    0.000   0.000     NaN
+      16       0       4  dyn   False         static 4.676   4.683    0.167          0.000      4.835     4.039       NaN    0.500   0.500     NaN
+      16       0       4  dyn   False     usage-prop 4.608   4.683    1.603         -0.040      4.686     4.297       NaN    0.241   0.759     NaN
+      16       0       4  dyn    True echoslice-lite 4.665   4.662   -0.074         -0.010      4.827     4.016       NaN    0.458   0.542     NaN
+      16       0       4  dyn    True   forecast+20% 4.671   4.662   -0.197         -0.022      4.794     4.178       NaN    0.352   0.648     NaN
+      16       0       4  dyn    True     ol-qoe+10% 4.593   4.662    1.469         -0.008      4.650     4.366       NaN    0.200   0.800     NaN
+      16       0       4  dyn    True         static 4.654   4.662    0.168          0.000      4.833     3.937       NaN    0.500   0.500     NaN
+      16       0       4  dyn    True     usage-prop 4.682   4.662   -0.445         -0.030      4.802     4.205       NaN    0.320   0.680     NaN
+      16       0       4 tput   False echoslice-lite 4.664   4.678    0.289          0.007      4.791     4.157       NaN    0.425   0.575     NaN
+      16       0       4 tput   False   forecast+20% 4.674   4.678    0.090         -0.032      4.793     4.196       NaN    0.355   0.645     NaN
+      16       0       4 tput   False     ol-qoe+10% 4.535   4.678    3.064         -0.010      4.576     4.367       NaN    0.184   0.816     NaN
+      16       0       4 tput   False         shared 4.679   4.678   -0.015         -0.004      4.824     4.097       NaN    0.000   0.000     NaN
+      16       0       4 tput   False         static 4.683   4.678   -0.105          0.000      4.830     4.093       NaN    0.500   0.500     NaN
+      16       0       4 tput   False     usage-prop 4.498   4.678    3.843         -0.011      4.531     4.368       NaN    0.173   0.827     NaN
+      16       0       4 tput    True echoslice-lite 4.593   4.679    1.842          0.006      4.678     4.253       NaN    0.274   0.726     NaN
+      16       0       4 tput    True   forecast+20% 4.667   4.679    0.247         -0.040      4.791     4.174       NaN    0.355   0.645     NaN
+      16       0       4 tput    True     ol-qoe+10% 4.537   4.679    3.025         -0.040      4.575     4.387       NaN    0.182   0.818     NaN
+      16       0       4 tput    True         static 4.658   4.679    0.440          0.000      4.832     3.963       NaN    0.500   0.500     NaN
+      16       0       4 tput    True     usage-prop 4.614   4.679    1.386         -0.033      4.695     4.292       NaN    0.260   0.740     NaN
+      16       6       4  dyn   False echoslice-lite 4.556   4.578    0.470         -0.031      4.818     3.930     4.276    0.376   0.304   0.320
+      16       6       4  dyn   False   forecast+20% 4.485   4.578    2.015         -0.026      4.804     4.208     3.821    0.369   0.473   0.158
+      16       6       4  dyn   False     ol-qoe+10% 4.333   4.578    5.345         -0.045      4.694     4.531     3.238    0.223   0.690   0.088
+      16       6       4  dyn   False         shared 4.552   4.578    0.571         -0.023      4.826     3.918     4.242    0.000   0.000   0.000
+      16       6       4  dyn   False         static 4.567   4.578    0.224         -0.020      4.801     3.961     4.348    0.333   0.333   0.333
+      16       6       4  dyn   False     usage-prop 4.224   4.578    7.723         -0.017      4.785     4.406     2.608    0.344   0.606   0.050
+      16       6       4  dyn    True echoslice-lite 4.525   4.557    0.700         -0.019      4.784     3.839     4.292    0.359   0.318   0.324
+      16       6       4  dyn    True   forecast+20% 4.464   4.557    2.044         -0.037      4.802     4.228     3.719    0.366   0.492   0.142
+      16       6       4  dyn    True     ol-qoe+10% 4.342   4.557    4.723         -0.039      4.648     4.524     3.403    0.214   0.691   0.095
+      16       6       4  dyn    True         static 4.550   4.557    0.148         -0.027      4.788     3.881     4.363    0.333   0.333   0.333
+      16       6       4  dyn    True     usage-prop 3.808   4.557   16.434         -0.036      4.079     4.624     2.540    0.152   0.798   0.050
+      16       6       4 tput   False echoslice-lite 4.551   4.561    0.224         -0.056      4.769     3.961     4.361    0.322   0.321   0.357
+      16       6       4 tput   False   forecast+20% 4.470   4.561    1.993         -0.039      4.801     4.219     3.755    0.371   0.474   0.155
+      16       6       4 tput   False     ol-qoe+10% 4.325   4.561    5.176         -0.023      4.597     4.564     3.439    0.206   0.698   0.096
+      16       6       4 tput   False         shared 4.551   4.561    0.212         -0.037      4.821     3.940     4.238    0.000   0.000   0.000
+      16       6       4 tput   False         static 4.567   4.561   -0.137         -0.052      4.795     3.968     4.358    0.333   0.333   0.333
+      16       6       4 tput   False     usage-prop 4.210   4.561    7.703         -0.063      4.744     4.463     2.616    0.312   0.638   0.050
+      16       6       4 tput    True echoslice-lite 4.500   4.541    0.915         -0.008      4.747     3.764     4.331    0.359   0.289   0.351
+      16       6       4 tput    True   forecast+20% 4.463   4.541    1.724         -0.042      4.784     4.204     3.781    0.361   0.488   0.151
+      16       6       4 tput    True     ol-qoe+10% 4.308   4.541    5.133         -0.027      4.557     4.528     3.500    0.201   0.703   0.096
+      16       6       4 tput    True         static 4.535   4.541    0.139         -0.029      4.771     3.888     4.339    0.333   0.333   0.333
+      16       6       4 tput    True     usage-prop 3.479   4.541   23.394         -0.087      3.542     4.676     2.513    0.076   0.874   0.050
+      24       8       6  dyn   False echoslice-lite 4.371   4.369   -0.059         -0.188      4.711     3.457     4.039    0.302   0.263   0.436
+      24       8       6  dyn   False   forecast+20% 4.301   4.369    1.559         -0.017      4.826     2.977     3.717    0.598   0.155   0.247
+      24       8       6  dyn   False     ol-qoe+10% 4.178   4.369    4.354         -0.110      4.658     4.084     2.810    0.311   0.589   0.100
+      24       8       6  dyn   False         shared 4.302   4.369    1.525         -0.016      4.821     3.361     3.452    0.000   0.000   0.000
+      24       8       6  dyn   False         static 4.386   4.369   -0.394         -0.075      4.727     3.633     3.927    0.333   0.333   0.333
+      24       8       6  dyn   False     usage-prop 4.041   4.369    7.494         -0.040      4.794     3.807     1.958    0.510   0.437   0.053
+      24       8       6  dyn    True echoslice-lite 4.306   4.360    1.236         -0.047      4.763     3.020     3.898    0.487   0.180   0.333
+      24       8       6  dyn    True   forecast+20% 4.254   4.360    2.430         -0.017      4.815     3.190     3.369    0.587   0.212   0.201
+      24       8       6  dyn    True     ol-qoe+10% 4.171   4.360    4.333         -0.047      4.660     4.093     2.763    0.307   0.594   0.100
+      24       8       6  dyn    True         static 4.348   4.360    0.273         -0.057      4.684     3.588     3.911    0.333   0.333   0.333
+      24       8       6  dyn    True     usage-prop 4.049   4.360    7.127         -0.037      4.780     3.849     2.006    0.484   0.460   0.056
+      24       8       6 tput   False echoslice-lite 4.342   4.363    0.471         -0.248      4.717     3.138     4.119    0.341   0.178   0.481
+      24       8       6 tput   False   forecast+20% 4.297   4.363    1.512         -0.022      4.818     3.191     3.560    0.600   0.205   0.195
+      24       8       6 tput   False     ol-qoe+10% 4.105   4.363    5.895         -0.021      4.570     4.133     2.689    0.291   0.613   0.096
+      24       8       6 tput   False         shared 4.312   4.363    1.164         -0.014      4.805     3.396     3.520    0.000   0.000   0.000
+      24       8       6 tput   False         static 4.345   4.363    0.397         -0.052      4.680     3.628     3.879    0.333   0.333   0.333
+      24       8       6 tput   False     usage-prop 4.028   4.363    7.668         -0.039      4.751     3.921     1.939    0.458   0.490   0.052
+      24       8       6 tput    True echoslice-lite 4.310   4.343    0.761         -0.102      4.715     3.135     3.974    0.431   0.199   0.370
+      24       8       6 tput    True   forecast+20% 4.254   4.343    2.038         -0.039      4.815     3.239     3.331    0.599   0.234   0.168
+      24       8       6 tput    True     ol-qoe+10% 4.113   4.343    5.286         -0.027      4.565     4.133     2.743    0.281   0.619   0.100
+      24       8       6 tput    True         static 4.325   4.343    0.401         -0.096      4.639     3.593     3.932    0.333   0.333   0.333
+      24       8       6 tput    True     usage-prop 4.035   4.343    7.083         -0.040      4.753     3.910     1.976    0.464   0.484   0.052
+      32       0       6  dyn   False echoslice-lite 4.577   4.568   -0.197         -0.005      4.739     3.713       NaN    0.616   0.384     NaN
+      32       0       6  dyn   False   forecast+20% 4.540   4.568    0.605         -0.017      4.796     3.178       NaN    0.784   0.216     NaN
+      32       0       6  dyn   False     ol-qoe+10% 4.510   4.568    1.277         -0.042      4.580     4.135       NaN    0.386   0.614     NaN
+      32       0       6  dyn   False         shared 4.568   4.568   -0.003         -0.026      4.804     3.308       NaN    0.000   0.000     NaN
+      32       0       6  dyn   False         static 4.571   4.568   -0.065          0.000      4.690     3.937       NaN    0.500   0.500     NaN
+      32       0       6  dyn   False     usage-prop 4.529   4.568    0.863          0.024      4.711     3.557       NaN    0.609   0.391     NaN
+      32       0       6  dyn    True echoslice-lite 4.581   4.585    0.085         -0.013      4.750     3.680       NaN    0.625   0.375     NaN
+      32       0       6  dyn    True   forecast+20% 4.541   4.585    0.975         -0.007      4.798     3.167       NaN    0.784   0.216     NaN
+      32       0       6  dyn    True     ol-qoe+10% 4.514   4.585    1.554          0.002      4.589     4.115       NaN    0.389   0.611     NaN
+      32       0       6  dyn    True         static 4.574   4.585    0.253          0.000      4.691     3.947       NaN    0.500   0.500     NaN
+      32       0       6  dyn    True     usage-prop 4.487   4.585    2.150          0.051      4.764     3.010       NaN    0.736   0.264     NaN
+      32       0       6 tput   False echoslice-lite 4.547   4.570    0.498         -0.035      4.675     3.865       NaN    0.540   0.460     NaN
+      32       0       6 tput   False   forecast+20% 4.534   4.570    0.786          0.003      4.799     3.118       NaN    0.799   0.201     NaN
+      32       0       6 tput   False     ol-qoe+10% 4.442   4.570    2.783         -0.045      4.498     4.146       NaN    0.366   0.634     NaN
+      32       0       6 tput   False         shared 4.563   4.570    0.140         -0.018      4.787     3.367       NaN    0.000   0.000     NaN
+      32       0       6 tput   False         static 4.529   4.570    0.898          0.000      4.639     3.937       NaN    0.500   0.500     NaN
+      32       0       6 tput   False     usage-prop 4.530   4.570    0.861          0.012      4.680     3.733       NaN    0.574   0.426     NaN
+      32       0       6 tput    True echoslice-lite 4.503   4.568    1.421         -0.022      4.603     3.967       NaN    0.485   0.515     NaN
+      32       0       6 tput    True   forecast+20% 4.533   4.568    0.752          0.013      4.796     3.131       NaN    0.795   0.205     NaN
+      32       0       6 tput    True     ol-qoe+10% 4.445   4.568    2.689         -0.051      4.501     4.147       NaN    0.366   0.634     NaN
+      32       0       6 tput    True         static 4.534   4.568    0.747          0.000      4.644     3.945       NaN    0.500   0.500     NaN
+      32       0       6 tput    True     usage-prop 4.490   4.568    1.691          0.033      4.735     3.186       NaN    0.721   0.279     NaN
+      32      12       8  dyn   False echoslice-lite 4.229   4.251    0.502         -0.163      4.621     2.828     4.119    0.380   0.212   0.408
+      32      12       8  dyn   False   forecast+20% 4.077   4.251    4.074         -0.033      4.790     1.768     3.718    0.718   0.058   0.224
+      32      12       8  dyn   False     ol-qoe+10% 4.073   4.251    4.186         -0.068      4.566     3.579     3.087    0.344   0.521   0.135
+      32      12       8  dyn   False         shared 4.164   4.251    2.042         -0.026      4.757     2.788     3.499    0.000   0.000   0.000
+      32      12       8  dyn   False         static 4.227   4.251    0.562         -0.089      4.551     3.204     4.043    0.333   0.333   0.333
+      32      12       8  dyn   False     usage-prop 3.675   4.251   13.552          0.111      4.598     3.100     1.596    0.568   0.382   0.050
+      32      12       8  dyn    True echoslice-lite 4.194   4.231    0.883         -0.042      4.592     2.927     3.975    0.410   0.266   0.324
+      32      12       8  dyn    True   forecast+20% 4.066   4.231    3.899         -0.033      4.786     1.710     3.715    0.717   0.059   0.224
+      32      12       8  dyn    True     ol-qoe+10% 4.032   4.231    4.712         -0.062      4.522     3.623     2.997    0.332   0.540   0.127
+      32      12       8  dyn    True         static 4.213   4.231    0.425         -0.109      4.530     3.196     4.045    0.333   0.333   0.333
+      32      12       8  dyn    True     usage-prop 3.708   4.231   12.352          0.038      4.674     3.078     1.553    0.588   0.362   0.050
+      32      12       8 tput   False echoslice-lite 4.186   4.215    0.686         -0.234      4.576     2.605     4.203    0.377   0.157   0.465
+      32      12       8 tput   False   forecast+20% 4.065   4.215    3.560         -0.051      4.789     1.821     3.632    0.731   0.063   0.206
+      32      12       8 tput   False     ol-qoe+10% 4.016   4.215    4.720         -0.047      4.472     3.601     3.077    0.334   0.532   0.134
+      32      12       8 tput   False         shared 4.164   4.215    1.225         -0.055      4.728     2.844     3.539    0.000   0.000   0.000
+      32      12       8 tput   False         static 4.197   4.215    0.433         -0.083      4.500     3.232     4.033    0.333   0.333   0.333
+      32      12       8 tput   False     usage-prop 3.649   4.215   13.432          0.102      4.556     3.081     1.609    0.572   0.377   0.051
+      32      12       8 tput    True echoslice-lite 4.162   4.203    0.961         -0.020      4.578     3.039     3.803    0.440   0.285   0.276
+      32      12       8 tput    True   forecast+20% 4.055   4.203    3.521         -0.041      4.775     1.734     3.682    0.720   0.061   0.219
+      32      12       8 tput    True     ol-qoe+10% 3.991   4.203    5.029         -0.074      4.459     3.616     2.994    0.327   0.546   0.127
+      32      12       8 tput    True         static 4.170   4.203    0.774         -0.075      4.466     3.200     4.030    0.333   0.333   0.333
+      32      12       8 tput    True     usage-prop 3.701   4.203   11.933          0.064      4.641     3.043     1.635    0.592   0.358   0.050
+      48       0       8  dyn   False echoslice-lite 4.449   4.495    1.030         -0.053      4.582     3.651       NaN    0.562   0.438     NaN
+      48       0       8  dyn   False   forecast+20% 4.344   4.495    3.358         -0.010      4.769     1.795       NaN    0.949   0.051     NaN
+      48       0       8  dyn   False     ol-qoe+10% 4.382   4.495    2.511         -0.062      4.470     3.857       NaN    0.450   0.550     NaN
+      48       0       8  dyn   False         shared 4.467   4.495    0.610         -0.003      4.733     2.873       NaN    0.000   0.000     NaN
+      48       0       8  dyn   False         static 4.423   4.495    1.598          0.000      4.529     3.790       NaN    0.500   0.500     NaN
+      48       0       8  dyn   False     usage-prop 4.203   4.495    6.490          0.261      4.367     3.222       NaN    0.570   0.430     NaN
+      48       0       8  dyn    True echoslice-lite 4.449   4.498    1.094         -0.045      4.583     3.642       NaN    0.566   0.434     NaN
+      48       0       8  dyn    True   forecast+20% 4.348   4.498    3.330         -0.022      4.775     1.788       NaN    0.949   0.051     NaN
+      48       0       8  dyn    True     ol-qoe+10% 4.305   4.498    4.294          0.011      4.367     3.928       NaN    0.402   0.598     NaN
+      48       0       8  dyn    True         static 4.430   4.498    1.500          0.000      4.538     3.786       NaN    0.500   0.500     NaN
+      48       0       8  dyn    True     usage-prop 4.292   4.498    4.568          0.164      4.462     3.272       NaN    0.587   0.413     NaN
+      48       0       8 tput   False echoslice-lite 4.445   4.450    0.108          0.003      4.633     3.320       NaN    0.705   0.295     NaN
+      48       0       8 tput   False   forecast+20% 4.323   4.450    2.858         -0.009      4.743     1.801       NaN    0.949   0.051     NaN
+      48       0       8 tput   False     ol-qoe+10% 4.303   4.450    3.317         -0.042      4.370     3.896       NaN    0.433   0.567     NaN
+      48       0       8 tput   False         shared 4.439   4.450    0.257         -0.002      4.688     2.941       NaN    0.000   0.000     NaN
+      48       0       8 tput   False         static 4.375   4.450    1.700         -0.000      4.472     3.791       NaN    0.500   0.500     NaN
+      48       0       8 tput   False     usage-prop 4.169   4.450    6.327          0.248      4.327     3.216       NaN    0.573   0.427     NaN
+      48       0       8 tput    True echoslice-lite 4.424   4.446    0.490         -0.028      4.597     3.386       NaN    0.670   0.330     NaN
+      48       0       8 tput    True   forecast+20% 4.328   4.446    2.653         -0.012      4.748     1.811       NaN    0.949   0.051     NaN
+      48       0       8 tput    True     ol-qoe+10% 4.316   4.446    2.920         -0.073      4.390     3.876       NaN    0.443   0.557     NaN
+      48       0       8 tput    True         static 4.375   4.446    1.599          0.000      4.471     3.796       NaN    0.500   0.500     NaN
+      48       0       8 tput    True     usage-prop 4.250   4.446    4.413          0.155      4.414     3.266       NaN    0.587   0.413     NaN

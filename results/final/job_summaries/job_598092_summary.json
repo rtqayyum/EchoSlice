@@ -1,0 +1,5 @@
+{"job_id": "598092", "job_name": "es-E2-slicer-period", "mode": "E2", "seeds": 30, "smoke": 0,
+ "ntasks": 40, "nodes": "cn[119-120]", "exit_code": 1,
+ "failed": ["E2:busy"], "elapsed_s": 118,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-E2-slicer-period_598092", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}

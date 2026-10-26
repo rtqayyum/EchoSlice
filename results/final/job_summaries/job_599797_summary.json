@@ -1,0 +1,5 @@
+{"job_id": "599797", "job_name": "es-drl-train-twin", "mode": "DRLTRAIN", "seeds": 30, "smoke": 0,
+ "ntasks": 1, "nodes": "cn182", "exit_code": 0,
+ "failed": [], "elapsed_s": 2472,
+ "per_task_logs": "/home/tariq.qayyum/echoslice/logs/es-drl-train-twin_599797", "campaign_summary": "/home/tariq.qayyum/echoslice/results/campaign_summary.json",
+ "report": "/home/tariq.qayyum/echoslice/reports/CAMPAIGN_REPORT.md"}
